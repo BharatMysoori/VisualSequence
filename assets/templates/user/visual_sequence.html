@@ -1,0 +1,61 @@
+{% extends 'user/design.html' %}
+{% block userblock %}
+{% load static %}
+
+
+<h1 style="color:white">VISUAL SEQUENCE PROCESS</h1>
+<div class="uploadprod">
+    <form method="post" autocomplete="off">
+        {% csrf_token %}
+<table>
+    {% for a in efd %}
+    <tr>
+        <td colspan="3"><img src="{{a.prosid.images.url}}" style="height:200px;width:200px;"></td>
+    </tr>
+
+    <tr>
+        <td style="color:white">Vendor</td>
+        <td style="color:white">:</td>
+        <td style="color:white">{{a.prosid.product_name}}</td>
+    </tr>
+    <tr>
+        <td style="color:white">Product Version Name</td>
+        <td style="color:white">:</td>
+        <td style="color:white">{{a.prosid.vendor_name}}</td>
+    </tr>
+    <tr>
+        <td style="color:white">Product Color</td>
+        <td style="color:white">:</td>
+        <td style="color:white">{{a.prosid.color}}</td>
+    </tr>
+    <tr>
+        <td style="color:white">Product Price</td>
+        <td style="color:white">:</td>
+        <td style="color:white">{{a.prosid.price}}</td>
+    </tr>
+    <tr>
+        <td style="color:white">Product Featuers</td>
+        <td style="color:white">:</td>
+        <td style="color:white">{{a.prosid.featuers}}</td>
+    </tr>
+<tr>
+        <td style="color:white">Product Quantity</td>
+        <td style="color:white">:</td>
+        <td style="color:white">{{form}}</td>
+    </tr>
+    <tr>
+                <td><a href="{% url 'all_products' a.prosid.id %}" style="color:white">View</a></td>
+            </tr>
+
+{% endfor %}
+</table>
+    </form>
+    </div>
+
+<script>
+
+</script>
+
+
+
+{% endblock %}

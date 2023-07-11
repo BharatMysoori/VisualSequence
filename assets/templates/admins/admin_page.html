@@ -1,0 +1,98 @@
+{% extends 'admins/admin_design.html' %}
+{% block adminblock %}
+{% load static %}
+<style>
+.uploadprod{
+margin-left:00px;
+background:rgba(47,79,79,0.8);;
+float:left;
+padding:10px;
+width:60%;
+}
+table{
+width:30%;
+}
+tr{
+height:60px;
+}
+td{
+align:center;
+align:center;
+}
+input[type=text],input[type=number],input[type=password],input[type=email],select{
+width:100%;
+background:none;
+border:1px solid white;
+padding:10px;
+color:white;
+}
+select{
+background:none;
+color:black;
+}
+input[type=submit]{
+width:50%;
+height:40px;
+background:none;
+border:1px solid white;
+text-transform:uppercase;
+color:white;
+cursor:pointer;
+padding:2px;
+}
+input[type=submit]:hover{
+background:white;
+color:rgb(94, 142, 137);
+font-weight: bold;
+}
+::placeholder{
+color:white;
+}
+.updateimage{
+border-style:solid;
+ border-width:1px;
+ height:300px;
+ width:300px;
+ margin-top:100px;
+ margin-left:740px;
+ background: url("{% static 'img15.jpg' %}");
+ background-size: 100%100%;
+
+}
+
+</style>
+
+<div class="uploadprod">
+
+<form method="Post" enctype="multipart/form-data" autocomplete="off">
+{% csrf_token %}
+<table>
+    <tr><td style="color:white">Category</td>
+       <td style="color:white">{{form.category}}</td>
+    </tr>
+    <tr><td style="color:white">Product_name</td>
+        <td>{{form.product_name}}</td>
+    </tr>
+    <tr><td style="color:white">Vendor_name</td>
+        <td>{{form.vendor_name}}</td>
+    </tr>
+    <tr><td style="color:white">Color</td>
+        <td>{{form.color}}</td>
+    </tr>
+    <tr><td style="color:white">Price</td>
+        <td>{{form.price}}</td>
+    </tr>
+    <tr><td style="color:white">Featuers</td>
+        <td>{{form.featuers}}</td>
+    </tr>
+    <tr><td style="color:white">Images</td>
+        <td>{{form.images}}</td>
+    </tr>
+    <tr>
+        <td align="center"><input type="submit" name="submit" value="submit"></td>
+    </tr>
+</table>
+</form>
+</div>
+<div class="updateimage"></div>
+{%endblock%}
